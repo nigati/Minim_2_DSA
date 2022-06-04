@@ -1,23 +1,16 @@
 package edu.upc.eetac.dsa;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Locale;
-
-import edu.upc.eetac.dsa.models.User;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class LanguageActivity extends AppCompatActivity {
     SharedPreferences sharedPref;
@@ -37,14 +30,16 @@ public class LanguageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setLanguage("ca");
-                updateLangUser("ca");
+                recreate();
+                //updateLangUser("ca");
             }
         });
         spabut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setLanguage("es");
-                updateLangUser("es");
+                recreate();
+                //updateLangUser("es");
 
             }
         });
@@ -52,7 +47,8 @@ public class LanguageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setLanguage("en");
-                updateLangUser("en");
+                recreate();
+                //updateLangUser("en");
 
             }
         });
@@ -74,7 +70,11 @@ public class LanguageActivity extends AppCompatActivity {
         String language = prefs.getString("My_Lang", "");
         setLanguage(language);
     }
-
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, MenuActivity.class));
+    }
+/*
     private void updateLangUser(String lang) {
         //first we get the user
         SharedPreferences sharedPref = getSharedPreferences("LoginData", MODE_PRIVATE);
@@ -118,6 +118,6 @@ public class LanguageActivity extends AppCompatActivity {
             }
         });
 
-    }
+    }*/
 
 }

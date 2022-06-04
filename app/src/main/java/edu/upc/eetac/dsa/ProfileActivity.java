@@ -57,6 +57,7 @@ public class ProfileActivity extends AppCompatActivity{
 
         SharedPreferences sharedPref = getSharedPreferences("LoginData", MODE_PRIVATE);
         String username = sharedPref.getString("username", "");
+
         apiInterface.profile(new String (username)).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {

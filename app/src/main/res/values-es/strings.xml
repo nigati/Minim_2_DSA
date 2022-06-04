@@ -20,6 +20,7 @@
     <string name="shop_btn">Tienda</string>
     <string name="log_out_btn">Log Out</string>
     <string name="languages_btn">Idiomas</string>
+    <string name="issues_btn">Problemas</string>
     <!-- Languages -->
     <string name="language_es">Español</string>
     <string name="language_english">Ingles</string>
